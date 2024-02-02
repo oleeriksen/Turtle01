@@ -3,9 +3,9 @@ namespace WebApp.Model
 {
     public class Turtle : ITurtle
     {
-        private int x = 0;
-        private int y = 0;
-        private int degree = 0;
+        private double x = 0;
+        private double y = 0;
+        private double degree = 0;
 
         private bool isDown = true;
 
@@ -20,11 +20,11 @@ namespace WebApp.Model
         public void Down() { isDown = true; }
         public void Up() { isDown = false; }
 
-        public void Move(int distance)
+        public void Move(double distance)
         {
             var radian = degree * 2 * Math.PI / 360;
-            var newx = x + (int)Math.Floor(Math.Cos(radian) * distance);
-            var newy = y + (int)Math.Floor(Math.Sin(radian) * distance);
+            var newx = x + Math.Cos(radian) * distance;
+            var newy = y + Math.Sin(radian) * distance;
 
 
             if (isDown)
@@ -33,7 +33,7 @@ namespace WebApp.Model
             y = newy;
         }
 
-        public void Turn(int d)
+        public void Turn(double d)
         {
             this.degree += d;
         }
@@ -43,7 +43,7 @@ namespace WebApp.Model
             x = 0; y = 0; degree = 0;
         }
 
-        public void MoveTo(int nx, int ny)
+        public void MoveTo(double nx, double ny)
         {
             var newx = nx;
             var newy = ny;
@@ -54,7 +54,7 @@ namespace WebApp.Model
             y = newy;
         }
 
-        public void TurnTo(int d)
+        public void TurnTo(double d)
         {
             degree = d;
         }

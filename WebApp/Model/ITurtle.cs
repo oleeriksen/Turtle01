@@ -3,11 +3,12 @@
     public interface ITurtle
     {
         void Down();
-        void Move(int distance);
-        void MoveTo(int x, int y);
+        void Move(double distance);
+        void MoveTo(double x, double y);
         void Reset();
-        void Turn(int d);
-        void TurnTo(int d);
+        void Turn(double d);
+        void TurnTo(double d);
         void Up();
+        string Color { get; set; }
     }
 }

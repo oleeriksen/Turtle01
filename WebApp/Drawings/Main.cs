@@ -6,11 +6,12 @@ namespace WebApp.Drawings
     public class Main
     {
         public static void Run() {
-            Turtle t = new();
-            DrawStar(t, 36);
+            ITurtle t = new Turtle();
+            t.MoveTo(0, 300);
+            DrawTriangle(t, 500, 2);
         }
 
-        private static void DrawStar(Turtle t, int n)
+        private static void DrawStar(ITurtle t, int n)
         {
             t.Up();
             t.Color = "red";
@@ -29,13 +30,13 @@ namespace WebApp.Drawings
 
         }
 
-        private static void DrawCubik(Turtle t, int width, int level)
+        private static void DrawCubik(ITurtle t, double width, int level)
         {
             if (level == 0)
                 t.Move(width);
             else
             {
-                var nw = (int)Math.Round((double)width / 3);
+                var nw = width / 3;
                 DrawCubik(t, nw, level - 1);
                 t.Turn(-90);
                 DrawCubik(t, nw, level - 1);
@@ -48,13 +49,13 @@ namespace WebApp.Drawings
             }
         }
 
-        private static void DrawTriangle(Turtle t, int width, int level)
+        private static void DrawTriangle(ITurtle t, double width, int level)
         {
             if (level == 0)
                 t.Move(width);
             else
             {
-                var nw = (int)Math.Round((double)width / 3);
+                var nw = width / 3;
                 DrawTriangle(t, nw, level - 1);
                 t.Turn(-60);
                 DrawTriangle(t, nw, level - 1);
