@@ -28,7 +28,7 @@ namespace WebApp.Model
 
 
             if (isDown)
-                mLines.Add(new Line { X1 = x, Y1 = y, X2 = newx, Y2 = newy, Color= this.Color });
+                mLines.Add(new Line { X1 = x, Y1 = y, X2 = newx, Y2 = newy, Color= this.Color, Width = this.Width });
             x = newx;
             y = newy;
         }
@@ -40,7 +40,7 @@ namespace WebApp.Model
 
         public void Reset()
         {
-            x = 0; y = 0; degree = 0;
+            x = 0; y = 0; degree = 0; Width = 1;
         }
 
         public void MoveTo(double nx, double ny)
@@ -49,7 +49,12 @@ namespace WebApp.Model
             var newy = ny;
 
             if (isDown)
-                mLines.Add(new Line { X1 = x, Y1 = y, X2 = newx, Y2 = newy, Color = this.Color });
+                mLines.Add(new Line { X1 = x,
+                                      Y1 = y,
+                                      X2 = newx,
+                                      Y2 = newy,
+                                      Color = this.Color,
+                                      Width = this.Width });
             x = newx;
             y = newy;
         }
@@ -59,9 +64,8 @@ namespace WebApp.Model
             degree = d;
         }
 
-        public string Color { get; set; }
-
-
+        public string Color { get; set; } = "black";
+        public double Width { get; set; } = 1;
     }
 }
 

@@ -10,5 +10,6 @@
         void TurnTo(double d);
         void Up();
         string Color { get; set; }
+        double Width { get; set; }
     }
 }

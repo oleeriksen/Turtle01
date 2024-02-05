@@ -9,6 +9,7 @@ namespace WebApp.Model
         public double Y2 { get; set; }
 
         public string Color { get; set; } = "black";
+        public double Width { get; set; } = 1;
     }
 }
 
