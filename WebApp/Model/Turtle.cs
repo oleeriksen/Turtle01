@@ -9,7 +9,7 @@ namespace WebApp.Model
 
         private bool isDown = true;
 
-        public static List<Line> mLines = new();
+        public List<Line> mLines = new();
 
         public Turtle()
         {

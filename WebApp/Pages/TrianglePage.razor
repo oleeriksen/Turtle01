@@ -1,0 +1,64 @@
+﻿@page "/triangle"
+@using WebApp.Model
+
+
+<PageTitle>Triangle</PageTitle>
+
+<h1>Triangle - with Turtle</h1>
+
+<button class="btn btn-primary" @onclick="Decrement">-</button>
+<div>@level</div>
+<button class="btn btn-primary" @onclick="Increment">+</button>
+
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+
+
+    @foreach (var line in mLines)
+    {
+        <line x1="@line.X1" y1="@line.Y1" x2="@line.X2" y2="@line.Y2" stroke="@line.Color" stroke-width="@line.Width" />
+    }
+</svg>
+@code {
+
+    private int level = 3;
+
+    List<Line> mLines = new();
+
+    protected override void OnInitialized()
+    {
+        var t = new Turtle();
+        t.Up();
+        t.MoveTo(0, 250);
+        t.Down();
+        DrawTriangle(t, 400, level);
+        mLines = t.mLines;
+    }
+
+    private void Decrement() {
+        level--;
+        StateHasChanged();
+    }
+
+    private void Increment() {
+        level++;
+        StateHasChanged();
+    }
+
+    private static void DrawTriangle(ITurtle t, double width, int level)
+    {
+        if (level == 0)
+            t.Move(width);
+        else
+        {
+            var nw = width / 3;
+            DrawTriangle(t, nw, level - 1);
+            t.Turn(-60);
+            DrawTriangle(t, nw, level - 1);
+            t.Turn(120);
+            DrawTriangle(t, nw, level - 1);
+            t.Turn(-60);
+            DrawTriangle(t, nw, level - 1);
+        }
+    }
+}
+
