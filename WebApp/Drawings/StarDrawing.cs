@@ -5,10 +5,6 @@ namespace WebApp.Drawings
 {
 	public class StarDrawing
 	{
-		public StarDrawing()
-		{
-		}
-
         public void DrawStar(ITurtle t, int n)
         {
             double centerX = 250, centerY = 150;
@@ -17,6 +13,8 @@ namespace WebApp.Drawings
             t.MoveTo(centerX, centerY);
             t.TurnTo(0);
             t.Down();
+
+         
 
             for (int i = 0; i < n; i++)
             {

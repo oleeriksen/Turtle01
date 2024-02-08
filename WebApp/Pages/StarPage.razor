@@ -8,10 +8,10 @@
 <h1>Star - with Turtle</h1>
 
 <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-   
+
     @foreach (var line in mLines)
     {
-            <line x1="@line.X1" y1="@line.Y1" x2="@line.X2" y2="@line.Y2" stroke="@line.Color" stroke-width="@line.Width"/>
+        <line x1="@line.X1" y1="@line.Y1" x2="@line.X2" y2="@line.Y2" stroke="@line.Color" stroke-width="@line.Width" />
     }
 </svg>
 @code {

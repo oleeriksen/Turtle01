@@ -2,38 +2,63 @@
 {
     public interface ITurtle
     {
-        /* Represent an object that can move in a 2D world.
-          The state is:
-           - the current loation -- (0,0) default
-           - the current direction -- 0 default
-           - a switch for traceability - on defsult
-           - a width - 1 default */
+        /// <summary>
+        /// Represent an object that can move in a 2D world.
+        /// The state is:
+        /// - the current loation -- (0,0) default
+        /// - the current direction -- 0 default
+        /// - a switch for traceability - on default
+        /// - a color - black as default
+        /// - a width - 1 default */
+        /// </summary>
 
-        // set traceability to on
+
+        /// <summary>set traceability to on</summary>
         void Down();
 
-        // set traceability to off
+        /// <summary>
+        /// set traceability to off
+        /// </summary>
         void Up();
 
-        // move in the current direction
+        /// <summary>
+        /// move in the current direction
+        /// </summary>
+        /// <param name="distance"></param>
         void Move(double distance);
 
-        // moveto a specific coordinate
+        /// <summary>
+        /// moveto a specific coordinate
+        /// </summary>
+        /// <param name="x">the x-ccordinate of the target</param>
+        /// <param name="y">the y-coordinate of the target</param>
         void MoveTo(double x, double y);
 
-        // add d to direction
+        /// <summary>
+        /// add d to direction
+        /// </summary>
+        /// <param name="d"></param>
         void Turn(double d);
 
-        // set direction
+        /// <summary>
+        /// set direction
+        /// </summary>
+        /// <param name="d">the direction as an angle</param>
         void TurnTo(double d);
 
-        // The color
+        /// <summary>
+        /// The color
+        /// </summary>
         string Color { get; set; }
 
-        // The width
+        /// <summary>
+        /// The width
+        /// </summary>
         double Width { get; set; }
 
-        // Reset state
+        /// <summary>
+        /// Reset state to ((0,0), 0, black, 1)
+        /// </summary>
         void Reset();
     }
 }
