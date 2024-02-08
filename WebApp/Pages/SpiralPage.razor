@@ -1,0 +1,59 @@
+﻿@page "/spiral"
+@using WebApp.Model
+@using WebApp.Drawings
+
+
+<PageTitle>Spiral</PageTitle>
+
+<h1>Spiral - with Turtle</h1>
+
+<button class="btn btn-primary" @onclick="Decrement">-</button>
+<button class="btn btn-secondary">@amount</button>
+<button class="btn btn-primary" @onclick="Increment">+</button>
+
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+
+
+    @foreach (var line in mLines)
+    {
+        <line x1="@line.X1" y1="@line.Y1" x2="@line.X2" y2="@line.Y2" stroke="@line.Color" stroke-width="@line.Width" />
+    }
+</svg>
+No of lines: @mLines.Count
+@code {
+
+    private int amount = 20;
+
+    List<Line> mLines = new();
+
+    protected override void OnInitialized()
+    {
+        CreateNewDrawing();
+    }
+
+    private void CreateNewDrawing()
+    {
+        var t = new Turtle();
+        t.Up();
+        t.MoveTo(650, 150);
+        t.Down();
+        SpiralDrawing drawing = new();
+        drawing.DrawSpiral(t, 350, amount, 1);
+        mLines = t.mLines;
+    }
+
+    private void Decrement()
+    {
+        amount--;
+        CreateNewDrawing();
+    }
+
+    private void Increment()
+    {
+        amount++;
+        CreateNewDrawing();
+    }
+
+
+}
+
