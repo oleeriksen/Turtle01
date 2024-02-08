@@ -34,24 +34,7 @@ namespace WebApp.Drawings
 
         }
 
-        private static void DrawCubik(ITurtle t, double width, int level)
-        {
-            if (level == 0)
-                t.Move(width);
-            else
-            {
-                var nw = width / 3;
-                DrawCubik(t, nw, level - 1);
-                t.Turn(-90);
-                DrawCubik(t, nw, level - 1);
-                t.Turn(90);
-                DrawCubik(t, nw, level - 1);
-                t.Turn(90);
-                DrawCubik(t, nw, level - 1);
-                t.Turn(-90);
-                DrawCubik(t, nw, level - 1);
-            }
-        }
+        
 
         
     }

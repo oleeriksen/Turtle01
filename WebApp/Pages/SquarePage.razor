@@ -1,11 +1,11 @@
-﻿@page "/triangle"
+﻿@page "/square"
 @using WebApp.Model
-@using WebApp.Drawings 
+@using WebApp.Drawings
 
 
-<PageTitle>Triangle</PageTitle>
+<PageTitle>Square</PageTitle>
 
-<h1>Triangle - with Turtle</h1>
+<h1>Square - with Turtle</h1>
 
 <button class="btn btn-primary" @onclick="Decrement">-</button>
 <button class="btn btn-secondary">@level</button>
@@ -26,26 +26,30 @@ No of lines: @mLines.Count
 
     List<Line> mLines = new();
 
-    protected override void OnInitialized(){
+    protected override void OnInitialized()
+    {
         CreateNewDrawing();
     }
 
-    private void CreateNewDrawing() {
+    private void CreateNewDrawing()
+    {
         var t = new Turtle();
         t.Up();
         t.MoveTo(0, 550);
         t.Down();
-        TriangleDrawing drawing = new();
-        drawing.DrawTriangle(t, 900, level);
+        SquareDrawing drawing = new();
+        drawing.DrawSquare(t, 900, level);
         mLines = t.mLines;
     }
 
-    private void Decrement() {
+    private void Decrement()
+    {
         level--;
         CreateNewDrawing();
     }
 
-    private void Increment() {
+    private void Increment()
+    {
         level++;
         CreateNewDrawing();
     }
