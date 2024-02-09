@@ -38,7 +38,7 @@ No of lines: @mLines.Count
         t.MoveTo(650, 150);
         t.Down();
         SpiralDrawing drawing = new();
-        drawing.DrawSpiral(t, 350, amount, 1);
+        drawing.DrawStarWithBoxes(t, 350, amount);
         mLines = t.mLines;
     }
 

@@ -7,7 +7,7 @@
 
 <h1>Star - with Turtle</h1>
 
-<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
 
     @foreach (var line in mLines)
     {
@@ -24,14 +24,14 @@
         StarDrawing drawing = new();
         drawing.DrawStar(t, 36);
         mLines = t.mLines;
-        foreach (var line in mLines)
+        /*foreach (var line in mLines)
         {
             line.X1 = Math.Round(line.X1);
             line.Y1 = Math.Round(line.Y1);
             line.X2 = Math.Round(line.X2);
             line.Y2 = Math.Round(line.Y2);
 
-        }
+        }*/
     }
 }
 

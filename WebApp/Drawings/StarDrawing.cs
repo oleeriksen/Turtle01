@@ -7,7 +7,7 @@ namespace WebApp.Drawings
 	{
         public void DrawStar(ITurtle t, int n)
         {
-            double centerX = 250, centerY = 150;
+            double centerX = 500, centerY = 300;
             t.Up();
             t.Color = "red";
             t.MoveTo(centerX, centerY);
@@ -15,11 +15,17 @@ namespace WebApp.Drawings
             t.Down();
             t.Width = 2;
 
-         
-
             for (int i = 0; i < n; i++)
             {
-                t.Move(100); // her tegnes
+                // hver anden skal være kortere og blå
+                if (i % 2 == 0) // even
+                {
+                    t.Color = "blue";
+                    t.Move(160);
+                    t.Color = "red";
+                }
+                else
+                    t.Move(200);
                 t.Up();
                 t.MoveTo(centerX, centerY);
                 t.Turn(360 / n);
