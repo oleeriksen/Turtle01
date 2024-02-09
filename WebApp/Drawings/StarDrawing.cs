@@ -13,6 +13,7 @@ namespace WebApp.Drawings
             t.MoveTo(centerX, centerY);
             t.TurnTo(0);
             t.Down();
+            t.Width = 2;
 
          
 

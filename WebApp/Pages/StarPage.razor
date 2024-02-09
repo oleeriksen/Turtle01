@@ -24,6 +24,14 @@
         StarDrawing drawing = new();
         drawing.DrawStar(t, 36);
         mLines = t.mLines;
+        foreach (var line in mLines)
+        {
+            line.X1 = Math.Round(line.X1);
+            line.Y1 = Math.Round(line.Y1);
+            line.X2 = Math.Round(line.X2);
+            line.Y2 = Math.Round(line.Y2);
+
+        }
     }
 }
 

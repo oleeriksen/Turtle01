@@ -5,7 +5,7 @@ namespace WebApp.Drawings
     public class SpiralDrawing
     {
         public void DrawStarWithBoxes(ITurtle t, double size, int amount) {
-            double deltaTilt = 90.0 / amount;
+            double deltaAngle = 90.0 / amount;
             for (int i = 0; i < amount;i++) {
                 DrawSquare(t, size);
                 // move to center
@@ -15,7 +15,7 @@ namespace WebApp.Drawings
                 t.Turn(90);
                 t.Move(size / 2);
                 // turn
-                t.Turn(deltaTilt);
+                t.Turn(deltaAngle);
                 t.Turn(-180);
                 t.Move(size / 2);
                 t.Turn(-90);
