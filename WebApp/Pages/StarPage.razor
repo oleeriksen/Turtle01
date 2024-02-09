@@ -7,6 +7,9 @@
 
 <h1>Star - with Turtle</h1>
 
+<button class="btn btn-primary" @onclick="Decrement">-</button>
+<button class="btn btn-secondary" @onclick="CreateNewDrawing">@amount</button>
+<button class="btn btn-primary" @onclick="Increment">+</button>
 <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
 
     @foreach (var line in mLines)
@@ -18,20 +21,31 @@
 
     List<Line> mLines = new();
 
+    int amount = 3;
+
     protected override void OnInitialized()
+    {
+        CreateNewDrawing();
+    }
+
+    private void CreateNewDrawing()
     {
         Turtle t = new();
         StarDrawing drawing = new();
-        drawing.DrawStar(t, 36);
+        drawing.DrawStar(t, amount);
         mLines = t.mLines;
-        /*foreach (var line in mLines)
-        {
-            line.X1 = Math.Round(line.X1);
-            line.Y1 = Math.Round(line.Y1);
-            line.X2 = Math.Round(line.X2);
-            line.Y2 = Math.Round(line.Y2);
+    }
 
-        }*/
+    private void Decrement()
+    {
+        amount--;
+        CreateNewDrawing();
+    }
+
+    private void Increment()
+    {
+        amount++;
+        CreateNewDrawing();
     }
 }
 
