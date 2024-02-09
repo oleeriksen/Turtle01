@@ -34,7 +34,7 @@ namespace WebApp.Drawings
 
         public void DrawSpiral(ITurtle t, double size, int amount, int rounds) {
             double deltaTilt = (360.0*rounds / amount);
-            double deltaSize = size*3 / (4 * amount);
+            double deltaSize = size*7 / (8 * amount);
             for (int i = 0; i <= amount; i++)
             {
                 DrawSquare(t, size);
