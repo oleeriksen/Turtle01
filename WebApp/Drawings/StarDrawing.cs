@@ -11,7 +11,7 @@ namespace WebApp.Drawings
         /// </summary>
         /// <param name="t">The turtle to draw with</param>
         /// <param name="n">The number of stars</param>
-        public void DrawStar(ITurtle t, int n)
+        public void DrawManyStars(ITurtle t, int n)
         {
             Random r = new Random();
             t.Width = 1;
