@@ -6,10 +6,25 @@
 <PageTitle>Star</PageTitle>
 
 <h1>Star - with Turtle</h1>
+<table width="100%">
+    <tr>
+        <td align="left">
+            # Stjerner
+            <button class="btn btn-primary" @onclick="Decrement">-</button>
+            <button class="btn btn-secondary">@amount</button>
+            <button class="btn btn-primary" @onclick="Increment">+</button>
 
-<button class="btn btn-primary" @onclick="Decrement">-</button>
-<button class="btn btn-secondary" @onclick="CreateNewDrawing">@amount</button>
-<button class="btn btn-primary" @onclick="Increment">+</button>
+        </td>
+        <td align="right">
+             # Delay
+            <button class="btn btn-primary" @onclick="() => SpeedChanged(false)">-</button>
+            <button class="btn btn-secondary">@delay</button>
+            <button class="btn btn-primary" @onclick="() => SpeedChanged(true)">+</button>
+        </td>
+    </tr>
+</table>
+
+
 <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
 
     @foreach (var line in mLines)
@@ -17,35 +32,71 @@
         <line x1="@line.X1" y1="@line.Y1" x2="@line.X2" y2="@line.Y2" stroke="@line.Color" stroke-width="@line.Width" />
     }
 </svg>
+
 @code {
 
     List<Line> mLines = new();
 
+    int delay = 50;
+
     int amount = 3;
+
+    int toShow = 2;
+
+    Turtle mTurtle = new();
+
+    System.Timers.Timer mTimer = new();
 
     protected override void OnInitialized()
     {
+        mTimer.Interval = delay;
+        mTimer.Elapsed += HandleEvent;
+
         CreateNewDrawing();
+        mTimer.Start();
+    }
+
+    private void HandleEvent(Object? source, System.Timers.ElapsedEventArgs e)
+    {
+
+        if (toShow < mTurtle.mLines.Count)
+            mLines.Add(mTurtle.mLines[toShow++]);
+        else
+            mTimer.Stop();
+        StateHasChanged();
     }
 
     private void CreateNewDrawing()
     {
-        Turtle t = new();
+        mTurtle = new();
         StarDrawing drawing = new();
-        drawing.DrawManyStars(t, amount);
-        mLines = t.mLines;
+        drawing.DrawManyStars(mTurtle, amount);
+        toShow = 2;
+        mLines = mTurtle.mLines.Take<Line>(toShow).ToList();
     }
-
     private void Decrement()
     {
-        amount--;
-        CreateNewDrawing();
+        if (amount > 1)
+        {
+            amount--;
+            CreateNewDrawing();
+            mTimer.Start();
+        }
     }
 
     private void Increment()
     {
         amount++;
         CreateNewDrawing();
+        mTimer.Start();
+    }
+
+    private void SpeedChanged(bool increment) {
+        int delta = 10;
+        if (!increment)
+            delta = -delta;
+        delay += delta;
+        mTimer.Interval = delay;
     }
 }
 
