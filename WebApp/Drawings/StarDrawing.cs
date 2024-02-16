@@ -13,6 +13,7 @@ namespace WebApp.Drawings
         /// <param name="n">The number of stars</param>
         public void DrawManyStars(ITurtle t, int n)
         {
+            string[] colors = { "red", "black", "green", "blue", "yellow", "white" };
             Random r = new Random();
             t.Width = 1;
 
@@ -21,19 +22,21 @@ namespace WebApp.Drawings
                 int size = 50 + r.Next(100);
                 int cx = size + r.Next(1000 - 2*size);
                 int cy = size + r.Next(600 - 2*size);
+                string color = colors[r.Next(colors.Length)];
                 
-                DrawOneStar(t, cx, cy, size);
+                DrawOneStar(t, cx, cy, size, color);
             }
 
         }
 
-        public void DrawOneStar(ITurtle t, double cx, double cy, int size) {
+        public void DrawOneStar(ITurtle t, double cx, double cy, int size, string color) {
 
             t.Up();
             t.MoveTo(cx, cy);
             t.TurnTo(0);
             t.Down();
             t.Width = 1;
+            t.Color = color;
            
             for (int i = 0; i < 36; i++)
             {           
