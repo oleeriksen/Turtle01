@@ -15,6 +15,7 @@ namespace WebApp.Drawings
             t.Up();
             t.MoveTo(500, 300);
             t.Down();
+
             for (int i = 0; i < steps; i++)
             {
                 distance.Roll();

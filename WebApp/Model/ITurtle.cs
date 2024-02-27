@@ -2,18 +2,18 @@
 {
     public interface ITurtle
     {
+        //Represent an object that can move in a 2D world.
+        //The state is:
+        //- the current loation -- (0,0) default
+        //- the current direction -- 0 default
+        //- a switch for traceability - on default
+        //- a color - black as default
+        //- a width - 1 default
+        
+
         /// <summary>
-        /// Represent an object that can move in a 2D world.
-        /// The state is:
-        /// - the current loation -- (0,0) default
-        /// - the current direction -- 0 default
-        /// - a switch for traceability - on default
-        /// - a color - black as default
-        /// - a width - 1 default */
+        /// set traceability to on
         /// </summary>
-
-
-        /// <summary>set traceability to on</summary>
         void Down();
 
         /// <summary>
