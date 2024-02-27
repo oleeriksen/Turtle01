@@ -21,7 +21,7 @@
 
     List<Line> mLines = new();
 
-    int amount = 3;
+    int amount = 30;
 
     protected override void OnInitialized()
     {
@@ -38,13 +38,13 @@
 
     private void Decrement()
     {
-        amount--;
+        amount -= 10;
         CreateNewDrawing();
     }
 
     private void Increment()
     {
-        amount++;
+        amount += 10;
         CreateNewDrawing();
     }
 }

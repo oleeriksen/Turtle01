@@ -26,6 +26,13 @@ namespace WebApp.Model
             var newx = x + Math.Cos(radian) * distance;
             var newy = y + Math.Sin(radian) * distance;
 
+            if (newx >= 1000)
+                newx = 999;
+            if (newx < 0) newx = 0;
+
+            if (newy >= 600)
+                newy = 599;
+            if (newy < 0) newy = 0;
 
             if (isDown)
                 mLines.Add(new Line { X1 = x, Y1 = y, X2 = newx, Y2 = newy, Color= this.Color, Width = this.Width });
