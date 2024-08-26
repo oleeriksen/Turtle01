@@ -4,7 +4,7 @@
     {
         //Represent an object that can move in a 2D world.
         //The state is:
-        //- the current loation -- (0,0) default
+        //- the current location -- (0,0) default
         //- the current direction -- 0 default
         //- a switch for traceability - on default
         //- a color - black as default
