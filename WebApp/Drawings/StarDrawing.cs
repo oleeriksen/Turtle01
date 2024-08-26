@@ -22,13 +22,20 @@ namespace WebApp.Drawings
                 int cx = size + r.Next(1000 - 2*size);
                 int cy = size + r.Next(600 - 2*size);
                 
-                DrawOneStar(t, cx, cy, size);
+                // to-do: overfør size, cx og cy som parametre til DrawOneStar
+                DrawOneStar(t);
             }
 
         }
 
-        public void DrawOneStar(ITurtle t, double cx, double cy, int size) {
+        public void DrawOneStar(ITurtle t)
+        {
 
+            double size = 75; 
+            double cx = 500; 
+            double cy = 300;
+            // (center for stjernen er (cx,cy)
+            
             t.Up();
             t.MoveTo(cx, cy);
             t.TurnTo(0);
@@ -45,34 +52,7 @@ namespace WebApp.Drawings
             }
         }
 
-        public void DrawStar_old(ITurtle t, int n)
-        {
-            double centerX = 500, centerY = 300;
-            t.Up();
-            t.Color = "red";
-            t.MoveTo(centerX, centerY);
-            t.TurnTo(0);
-            t.Down();
-            t.Width = 2;
-
-            for (int i = 0; i < n; i++)
-            {
-                // hver anden skal være kortere og blå
-                if (i % 2 == 0) // even
-                {
-                    t.Color = "blue";
-                    t.Move(160);
-                    t.Color = "red";
-                }
-                else
-                    t.Move(200);
-                t.Up();
-                t.MoveTo(centerX, centerY);
-                t.Turn(360.0 / n);
-                t.Down();
-            }
-
-        }
+        
     }
 }
 
