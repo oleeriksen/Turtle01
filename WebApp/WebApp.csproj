@@ -26,7 +26,6 @@
     <None Remove="Drawings\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="Drawings\" />
   </ItemGroup>
 </Project>
