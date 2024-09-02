@@ -7,7 +7,7 @@ namespace WebApp.Drawings
 	{
         public void DrawOneStar(ITurtle t)
         {
-            double size = 75; 
+            double size = 10; 
             double cx = 500; 
             double cy = 300;
             // (center for stjernen er (cx,cy)
@@ -46,7 +46,25 @@ namespace WebApp.Drawings
                 int cy = size + r.Next(600 - 2*size);
                 
                 // to-do: overfør size, cx og cy som parametre til DrawOneStar
-                DrawOneStar(t);
+                DrawOneStar(t, size, cx, cy);
+            }
+        }
+        
+        public void DrawOneStar(ITurtle t, double size, double cx, double cy)
+        {
+            t.Up();
+            t.MoveTo(cx, cy);
+            t.TurnTo(0);
+            t.Down();
+            t.Width = 1;
+           
+            for (int i = 0; i < 36; i++)
+            {           
+                t.Move(size);
+                t.Up();
+                t.MoveTo(cx, cy);
+                t.Turn(10);
+                t.Down();
             }
         }
     }
