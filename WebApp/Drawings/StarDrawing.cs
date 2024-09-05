@@ -45,12 +45,11 @@ namespace WebApp.Drawings
                 int cx = size + r.Next(1000 - 2*size);
                 int cy = size + r.Next(600 - 2*size);
                 
-                // to-do: overfør size, cx og cy som parametre til DrawOneStar
                 DrawOneStar(t, size, cx, cy);
             }
         }
         
-        public void DrawOneStar(ITurtle t, double size, double cx, double cy)
+        private void DrawOneStar(ITurtle t, double size, double cx, double cy)
         {
             t.Up();
             t.MoveTo(cx, cy);
