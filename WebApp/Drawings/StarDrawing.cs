@@ -7,16 +7,17 @@ namespace WebApp.Drawings
 	{
         public void DrawOneStar(ITurtle t)
         {
-            double size = 10; 
+            double size = 100; 
             double cx = 500; 
             double cy = 300;
             // (center for stjernen er (cx,cy)
+            t.Color = "#03616b";
             
             t.Up();
             t.MoveTo(cx, cy);
             t.TurnTo(0);
             t.Down();
-            t.Width = 1;
+            t.Width = 2;
            
             for (int i = 0; i < 36; i++)
             {           
@@ -37,6 +38,7 @@ namespace WebApp.Drawings
         public void DrawManyStars(ITurtle t, int n)
         {
             Random r = new Random();
+            string[] colors = {"red", "blue", "black", "gray", "yellow", "green"} ;
             t.Width = 1;
 
             for (int i = 0; i < n; i++)
@@ -44,13 +46,15 @@ namespace WebApp.Drawings
                 int size = 50 + r.Next(100);
                 int cx = size + r.Next(1000 - 2*size);
                 int cy = size + r.Next(600 - 2*size);
-                
-                DrawOneStar(t, size, cx, cy);
+                int randomIdx = r.Next(colors.Length);
+                string randomColor = colors[randomIdx];
+                DrawOneStar(t, size, cx, cy, randomColor);
             }
         }
         
-        private void DrawOneStar(ITurtle t, double size, double cx, double cy)
+        private void DrawOneStar(ITurtle t, double size, double cx, double cy, string color)
         {
+            t.Color = color;
             t.Up();
             t.MoveTo(cx, cy);
             t.TurnTo(0);
