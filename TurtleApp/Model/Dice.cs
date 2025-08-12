@@ -1,5 +1,5 @@
 ﻿using System;
-namespace WebApp.Model
+namespace TurtleApp.Model
 {
     public class Dice
     {

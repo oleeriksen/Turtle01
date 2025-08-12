@@ -1,6 +1,6 @@
 ﻿using System;
-using WebApp.Model;
-namespace WebApp.Drawings
+using TurtleApp.Model;
+namespace TurtleApp.Drawings
 {
     public class SpiralDrawing
     {

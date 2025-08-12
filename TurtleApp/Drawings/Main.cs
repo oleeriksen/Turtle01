@@ -1,7 +1,7 @@
 ﻿using System;
-using WebApp.Model;
+using TurtleApp.Model;
 
-namespace WebApp.Drawings
+namespace TurtleApp.Drawings
 {
     public class Main
     {
