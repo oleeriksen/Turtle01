@@ -7,11 +7,12 @@ namespace TurtleApp.Drawings
 	{
         public void DrawSquare(ITurtle t, double width, int level)
         {
-            if (level == 0)
+            var nw = width / 3;
+            if (level == 0 || nw < 3)
                 t.Move(width);
             else
             {
-                var nw = width / 3;
+                
                 DrawSquare(t, nw, level - 1);
                 t.Turn(-90);
                 DrawSquare(t, nw, level - 1);

@@ -6,10 +6,12 @@
 <PageTitle>Spiral</PageTitle>
 
 <h1>Spiral - with Turtle</h1>
-
-<button class="btn btn-primary" @onclick="Decrement">-</button>
+<button class="btn btn-primary" @onclick="() => Increment(-10)">-10</button>
+<button class="btn btn-primary" @onclick="() => Increment(-1)">-</button>
 <button class="btn btn-secondary">@amount</button>
-<button class="btn btn-primary" @onclick="Increment">+</button>
+<button class="btn btn-primary" @onclick="() => Increment(1)">+</button>
+<button class="btn btn-primary" @onclick="() => Increment(10)">+10</button>
+
 
 <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
 
@@ -42,15 +44,10 @@ No of lines: @mLines.Count
         mLines = t.mLines;
     }
 
-    private void Decrement()
-    {
-        amount--;
-        CreateNewDrawing();
-    }
 
-    private void Increment()
+    private void Increment(int delta)
     {
-        amount++;
+        amount += delta;
         CreateNewDrawing();
     }
 
